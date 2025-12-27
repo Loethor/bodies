@@ -29,6 +29,7 @@ make test      # Run all unit tests
 - `tests/`       - Unit tests (Google Test)
 - `data/`        - Example configuration files
 - `output.csv`   - Example output file (generated)
+- `scripts/`     - Python scripts for visualization
 
 ## Configuration Files
 Configuration files (e.g., `data/earth_moon.txt`) are space-separated text files:
@@ -45,17 +46,21 @@ time,body_name,x,y,z,vx,vy,vz
 ```
 
 ## Visualization
-You can plot the output using Python/matplotlib, Excel, or any plotting tool. Example Python snippet:
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-
 df = pd.read_csv('output.csv')
-for name, group in df.groupby('body_name'):
-    plt.plot(group['x'], group['y'], label=name)
-plt.legend()
-plt.show()
+
+### Python Visualization
+To visualize the simulation output, use the provided Python script:
+
+```sh
+cd scripts
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python plot_output.py ../output.csv
 ```
+This will plot the trajectories of all bodies using matplotlib.
+
+You can also use Excel or any plotting tool to visualize `output.csv`.
 
 ## License
 MIT

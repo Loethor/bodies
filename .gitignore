@@ -60,6 +60,21 @@ install_manifest.txt
 # macOS
 .DS_Store
 
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.env/
+.venv/
+venv/
+ENV/
+env/
+scripts/.venv/
+scripts/__pycache__/
+output.csv
+
 # Windows
 Thumbs.db
 Desktop.ini
