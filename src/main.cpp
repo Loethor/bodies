@@ -9,23 +9,24 @@ int main() {
     std::vector<Body> bodies = ConfigLoader::loadBodies("data/earth_moon.txt");
     
     // Create a simulation
-    Simulation sim;
-    sim.dt = 3600.0; // 1 hour time step
-    sim.bodies = bodies;
+    Simulation simulation;
+    simulation.dt = 3600.0; // 1 hour time step
+    simulation.bodies = bodies;
 
-    // Create integrator and integrate
+    // Create integrator
     EulerIntegrator integrator;
     
     std::cout << "Initial state:\n";
-    for (const auto& body : sim.bodies) {
-        body.print();
+    for (const auto& body : simulation.bodies) {
+        body.printState();
     }
     
-    integrator.integrate(sim);
+    // Integrator advances the simulation one step
+    integrator.step(simulation);
     
-    std::cout << "\nAfter integration:\n";
-    for (const auto& body : sim.bodies) {
-        body.print();
+    std::cout << "\nAfter integration:\n";;
+    for (const auto& body : simulation.bodies) {
+        body.printState();
     }
     
     return 0;

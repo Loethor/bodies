@@ -38,6 +38,8 @@ add_executable(tests
     tests/body_test.cpp
     tests/math_test.cpp
     tests/config_loader_test.cpp
+    tests/simulation_test.cpp
+    tests/euler_integrator_test.cpp
     src/body/body.cpp
     src/simulation/simulation.cpp
     src/integrator/euler_integrator.cpp

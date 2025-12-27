@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "body.hpp"
-#include "math_utils.hpp"
+#include "vector_math.hpp"
 
 TEST(BodyTest, ConstructorInitializesCorrectly) {
     std::string name = "TestBody";

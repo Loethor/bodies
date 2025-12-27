@@ -5,5 +5,5 @@
 class Integrator {
 public:
     virtual ~Integrator() = default;
-    virtual void integrate(Simulation& sim) = 0;
+    virtual void step(Simulation& simulation) = 0;
 };

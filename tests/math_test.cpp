@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "math_utils.hpp"
+#include "vector_math.hpp"
 
 TEST(Vec3Test, AdditionWorks) {
     Vec3 a = {1.0, 2.0, 3.0};

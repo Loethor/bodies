@@ -4,5 +4,5 @@
 
 class EulerIntegrator : public Integrator {
 public:
-    void integrate(Simulation& sim) override;
+    void step(Simulation& simulation) override;
 };
