@@ -9,7 +9,8 @@
 
 int main() {
     // Config file path
-    std::string config_path = "data/earth_moon.txt";
+    // std::string config_path = "data/earth_moon.txt";
+    std::string config_path = "data/sun_earth_moon.txt";
     // Extract base name for output
     std::filesystem::path config_file(config_path);
     std::string base_name = config_file.stem().string();
