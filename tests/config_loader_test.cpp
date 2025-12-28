@@ -6,7 +6,7 @@
 class ConfigLoaderTest : public ::testing::Test {
 protected:
     void SetUp() override {
-        // Create a test config file
+        // Create a valid test config file
         std::ofstream file("test_config.txt");
         file << "# Test configuration\n";
         file << "# Format: name mass x y z vx vy vz radius\n";
@@ -14,13 +14,22 @@ protected:
         file << "Body1 1.0e24 0.0 0.0 0.0 1.0 2.0 3.0 1.5\n";
         file << "Body2 2.0e24 10.0 20.0 30.0 -1.0 -2.0 -3.0 2.5\n";
         file.close();
+
+        // Create an invalid config file (missing fields)
+        std::ofstream badfile("bad_config.txt");
+        badfile << "Body1 1.0e24 0.0 0.0 0.0 1.0 2.0 1.5\n"; // missing vz
+        badfile.close();
     }
 
     void TearDown() override {
-        // Clean up test file
+        // Clean up test files
         std::remove("test_config.txt");
+        std::remove("bad_config.txt");
     }
 };
+TEST_F(ConfigLoaderTest, ThrowsExceptionForInvalidFormat) {
+    EXPECT_THROW(ConfigLoader::loadBodies("bad_config.txt"), std::runtime_error);
+}
 
 TEST_F(ConfigLoaderTest, LoadsValidFile) {
     std::vector<Body> bodies = ConfigLoader::loadBodies("test_config.txt");

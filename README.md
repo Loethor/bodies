@@ -32,11 +32,21 @@ make test      # Run all unit tests
 - `scripts/`     - Python scripts for visualization
 
 ## Configuration Files
-Configuration files (e.g., `data/earth_moon.txt`) are space-separated text files:
+Configuration files (e.g., `data/earth_moon.txt`, `data/sun_mercury_venus_earth_mars.txt`) are space-separated text files:
 ```
-# name mass x y z vx vy vz
-Earth 5.972e24 0 0 0 0 0 0
-Moon 7.348e22 384400000 0 0 0 1022 0
+# name mass x y z vx vy vz radius
+Earth 5.972e24 0 0 0 0 0 0 0 6371000
+Moon 7.348e22 384400000 0 0 0 1022 0 1737000
+```
+
+Example: `data/sun_mercury_venus_earth_mars.txt`
+```
+# name mass x y z vx vy vz radius
+Sun 1.9885e30 0 0 0 0 0 0 0 696340000
+Mercury 3.3011e23 57910000000 0 0 0 47900 0 2439700
+Venus 4.8675e24 108200000000 0 0 0 35000 0 6051800
+Earth 5.9724e24 149600000000 0 0 0 29800 0 6371000
+Mars 6.4171e23 227900000000 0 0 0 24100 0 3389500
 ```
 
 ## Output
@@ -47,13 +57,16 @@ time,body_name,x,y,z,vx,vy,vz
 
 ## Visualization
 
-Example animation:
+
+Example animations:
 
 ![Earth-Moon Simulation](output/earth_moon.gif)
-
-df = pd.read_csv('output.csv')
+![Sun-Mercury-Venus-Earth-Mars Simulation](output/sun_mercury_venus_earth_mars.gif)
 
 ### Python Visualization
+To visualize the simulation output, use the provided Python script:
+
+
 To visualize the simulation output, use the provided Python script:
 
 ```sh
@@ -62,10 +75,11 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python plot_output.py ../output/earth_moon.csv
+python plot_output.py ../output/sun_mercury_venus_earth_mars.csv
 ```
 This will plot the trajectories of all bodies using matplotlib.
 
 You can also use Excel or any plotting tool to visualize `output.csv`.
 
 ## License
-MIT
+This project is licensed under the [MIT License](LICENSE).

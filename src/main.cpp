@@ -11,7 +11,8 @@ int main() {
     // Config file path
     // std::string config_path = "data/earth_moon.txt";
     // std::string config_path = "data/sun_earth_moon.txt";
-    std::string config_path = "data/solar_system.txt";
+    // std::string config_path = "data/solar_system.txt";
+    std::string config_path = "data/sun_mercury_venus_earth_mars.txt";
 
     // Extract base name for output
     std::filesystem::path config_file(config_path);
@@ -39,8 +40,9 @@ int main() {
     double time = 0.0;
     output.writeStep(time, simulation.bodies);
 
-    // Run simulation for 655 steps
-    for (int step = 0; step < 655; ++step) {
+    int number_of_steps = 24*365; // 1 year
+    // Run the simulation
+    for (int step = 0; step < number_of_steps; ++step) {
         integrator.step(simulation);
         time += simulation.dt;
         output.writeStep(time, simulation.bodies);
