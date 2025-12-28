@@ -3,10 +3,9 @@
 This project simulates the gravitational interaction of multiple bodies (n-body problem) using C++20. It features modular design, unit tests, and CSV output for easy visualization.
 
 
-<div style="display: flex; gap: 10px; justify-content: center; align-items: center; width: 100%;">
-	<img src="output/earth_moon.gif" alt="Earth-Moon Simulation" style="width: 50%; min-width: 200px; max-width: 100%; height: auto;" />
-	<img src="output/sun_mercury_venus_earth_mars.gif" alt="Sun-Mercury-Venus-Earth-Mars Simulation" style="width: 50%; min-width: 200px; max-width: 100%; height: auto;" />
-</div>
+
+| ![Earth-Moon Simulation](output/earth_moon.gif) | ![Sun-Mercury-Venus-Earth-Mars Simulation](output/sun_mercury_venus_earth_mars.gif) |
+|:--:|:--:|
 
 ## Features
 - Modular C++20 codebase
