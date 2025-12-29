@@ -3,7 +3,8 @@
 #include <string>
 #include "body.hpp"
 #include "simulation.hpp"
-#include "euler_integrator.hpp"
+// #include "euler_integrator.hpp"
+#include "runge_kutta_4.hpp"
 #include "config_loader.hpp"
 #include "output.hpp"
 
@@ -30,7 +31,8 @@ int main() {
     simulation.bodies = bodies;
 
     // Create integrator
-    EulerIntegrator integrator;
+    // EulerIntegrator integrator;
+    RungeKutta4Integrator rk4_integrator;
 
     // Create output
     Output output(output_path);
@@ -43,7 +45,7 @@ int main() {
     int number_of_steps = 24*365; // 1 year
     // Run the simulation
     for (int step = 0; step < number_of_steps; ++step) {
-        integrator.step(simulation);
+        rk4_integrator.step(simulation);
         time += simulation.dt;
         output.writeStep(time, simulation.bodies);
     }

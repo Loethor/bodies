@@ -15,6 +15,7 @@ add_executable(app
     src/body/body.cpp
     src/simulation/simulation.cpp
     src/integrator/euler_integrator.cpp
+    src/integrator/runge_kutta_4.cpp
     src/config/config_loader.cpp
     src/output.cpp
 )
